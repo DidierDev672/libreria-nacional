@@ -1,0 +1,88 @@
+import { Book } from '../../models/book.model';
+
+export const Books: Book[] = [
+  {
+    bookId: '27cf13026e2d72124cc38edc58661516',
+    title: 'Historiando mi cantar',
+    imgUrl:
+      'https://storage.googleapis.com/catalogo-libros/extralarge/79c549a9-aae8-867d-7955-6633c8b3ec28_imagen.jpg',
+    pages: '428',
+    size: 'Ancho: 16cm - Alto: 23cm',
+    year: '',
+    publisher: 'La diligencia libros S.A.S',
+    language: 'Espanol',
+    type: 'Libro',
+    authors: 'Jorge velosa ruiz',
+    price: 78000,
+  },
+  {
+    bookId: '410d6144e8e009357d3394af44585a0c',
+    title: 'Las lanzas rotas',
+    imgUrl:
+      'https://storage.googleapis.com/catalogo-libros/extralarge/7eced9f3-7b20-51f6-0074-541c62cc8643_imagen.jpg',
+    pages: '223',
+    size: 'Ancho: 14cm - Alto: 21cm',
+    year: '',
+    publisher: 'Valdemar',
+    language: 'Espanol',
+    type: 'Libro',
+    authors: 'Arsenal leon',
+    price: 52000,
+  },
+  {
+    bookId: '4603e0261e4f5b999d30bd6a385dbff7',
+    title: 'La sangre de los inocentes',
+    imgUrl:
+      'https://storage.googleapis.com/catalogo-libros/extralarge/da7501cd-ca1a-635d-6cd7-541c5abc62a2_imagen.jpg',
+    pages: '779',
+    size: 'Ancho: 13cm - Alto: 19cm',
+    year: '',
+    publisher: 'Debolsillo',
+    language: 'Espanol',
+    type: 'Libro',
+    authors: 'Julian Navarro',
+    price: 64000,
+  },
+  {
+    bookId: '52f4cf6060fd8a46c10ad97b6c579dd2',
+    title: 'La caida de los gigantes',
+    imgUrl:
+      'https://storage.googleapis.com/catalogo-libros/extralarge/7dc505ff-2150-6c00-0828-541c75d9deb2_imagen.jpg',
+    pages: '1016',
+    size: 'Ancho: 13cm - Alto: 19cm',
+    year: '',
+    publisher: 'Debolsillo',
+    language: 'Japanese',
+    type: 'pdf',
+    authors: 'Ken follett',
+    price: 69000,
+  },
+  {
+    bookId: '7f0f681b7f000521bcc5e70270f8a155',
+    title: 'Los pilares de la tierra',
+    imgUrl:
+      'https://storage.googleapis.com/catalogo-libros/extralarge/6ba07a0e-1468-f969-6c87-541c5340995b_imagen.JPG',
+    pages: '1038',
+    size: 'Ancho: 13cm - Alto: 20cm',
+    year: '',
+    publisher: 'Debolsillo',
+    language: 'Espanol',
+    type: 'Libro',
+    authors: 'Ken Follett',
+    price: 71000,
+  },
+  {
+    bookId: '7592ff85f4b7fbdaf45dc276ed1fa08f',
+    title: 'Dime quien soy',
+    imgUrl:
+      'https://crm.librerianacional.com/custom/include/SugarFields/Fields/ExistayaFile/files/img/20151231050825_33549.jpg',
+    pages: '1096',
+    size: 'Ancho: 12cm - Alto: 19cm',
+    year: '',
+    publisher: 'Debolsillo',
+    language: 'Espanol',
+    type: 'Libro',
+    authors: 'Julia navarro',
+    price: 72000,
+  },
+];
