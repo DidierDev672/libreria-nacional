@@ -1,25 +1,12 @@
 <div class="flex flex-col justify-center p-5">
   <div class="grid-books">
     @for(item of bookService.books(); track item.bookId){
-    <a
-    [routerLink]="['/book', item.bookId]"
-      routerLinkActive="router-link-active"
-      class="flex flex-col w-80 bg-slate-50 rounded-3xl border-slate-600"
-    >
-      <img
-        [srcset]="item.imgUrl"
-        [alt]="item.title"
-        class="w-full h-80 rounded-3xl object-cover"
-      />
-      <div class="flex flex-col w-full text-wrap p-5 justify-items-stretch">
-        <span class="text-3xl font-bold text-slate-950">{{
-          item.title
-        }}</span>
-        <small class="text-2xl font-normal text-gray-600">{{
-          item.authors
-        }}</small>
-      </div>
-    </a>
+    <app-card
+      [bookId]="item.bookId"
+      [title]="item.title"
+      [author]="item.authors"
+      [imgUrl]="item.imgUrl"
+    />
     }@empty {
     <h3>Cargando...</h3>
     }
