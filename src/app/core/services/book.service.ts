@@ -5,32 +5,59 @@ import { Book } from '../models/book.model';
 
 interface State {
   data: Book[];
+  category?: Book[];
 }
+
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookService {
-  #state = signal<State>({
-    data: [],
+
+  data = signal<State>({
+    data: Books,
+    category: []
   });
 
-  public books = computed(() => this.#state().data);
+  books = computed(() => this.data().data);
+
+  category = computed(() => this.data().category);
+
   constructor() {
     this.getAllBooks();
   }
 
   //! Método para obtener todos los libros
   getAllBooks(): Observable<Book[]> {
-    this.#state.set({
-      data: Books,
-    });
-    return of(Books);
+    return of(this.data().data);
   }
 
   //! Método para obtener un libro por su ID
   getBookById(bookId: string): Observable<Book | undefined> {
     const book = Books.find((b) => b.bookId === bookId);
     return of(book);
+  }
+
+  //! Método para obtener por un nombre
+  getByNameBook(title: string): Observable<Book[] | []>{
+    const book = Books.filter((b) => b.title === title);
+
+    if (book.length > 0) {
+      this.data.set({
+        data: book,
+      });
+    }
+    return of(book);
+  }
+
+  //! Método para obtener por un categoría
+  getByCategoryBook(category: string): Observable<Book[] | []>{
+    const categoric = Books.filter((b) => b.category === category);
+    this.data.set({
+      data: Books,
+      category: categoric
+    });
+    return of(categoric);
   }
 }

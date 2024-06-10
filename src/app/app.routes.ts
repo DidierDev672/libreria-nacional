@@ -8,6 +8,14 @@ export const routes: Routes = [
     children: [],
   },
   {
+    path: 'book/:id',
+    loadComponent: () => import('./core/features/book/book-detail/book-detail.component')
+  },
+  {
+    path: 'catalogo',
+    loadComponent: () => import('./core/features/book/catalogo/catalogo.component'),
+  },
+  {
     path: '',
     redirectTo: '/books',
     pathMatch: 'full',

@@ -1,13 +1,16 @@
+import { Detail } from "./detail";
+
 export interface Book {
   bookId: string;
   title: string;
   imgUrl: string;
-  pages: string | number;
-  size: string | number;
-  year: string | number;
-  publisher: string | number;
+  pages: string;
+  size: string;
+  year: string;
+  publisher: string;
   language: string;
   type: string;
   authors: string;
-  price: number | string;
+  category: string;
+  detail: Detail;
 }

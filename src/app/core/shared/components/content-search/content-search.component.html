@@ -1,0 +1,15 @@
+<div class="container w-full mx-auto flex flex-row gap-4 p-4">
+  <input
+    type="text"
+    class="w-[300px] text-center border border-gray-300 rounded-lg"
+    [(ngModel)]="title"
+    placeholder="Ingresa el nombre de algún libro"
+  />
+  <button
+    type="button"
+    class="mt-2 w-[100px] bg-blue-500 text-white p-3 rounded-lg"
+    (click)="search()"
+  >
+    Buscar
+  </button>
+</div>
