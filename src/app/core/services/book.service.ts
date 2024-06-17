@@ -1,4 +1,4 @@
-import { Injectable, computed, signal } from '@angular/core';
+import { Injectable, computed, effect, signal } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Books } from '../shared/utils/data';
 import { Book } from '../models/book.model';
@@ -20,12 +20,26 @@ export class BookService {
     category: []
   });
 
-  books = computed(() => this.data().data);
+  books = computed(() => {
+    const data = this.data().data;
+    const numberItem = (data.length / 3);
+    if (numberItem >= 1) {
+      const filterData = data.sort(() => Math.random() - 0.5);
+      const randomItems = filterData.slice(0, numberItem);
+      return randomItems;
+    }
+    return data;
+  });
 
   category = computed(() => this.data().category);
 
   constructor() {
     this.getAllBooks();
+  }
+
+  //! Métodos para los agregar libros
+  addBook(book: Book): void {
+    Books.push(book);
   }
 
   //! Método para obtener todos los libros
@@ -59,5 +73,15 @@ export class BookService {
       category: categoric
     });
     return of(categoric);
+  }
+
+  //! Método para obtener por "Autor"
+  getByAuthorBook(author: string): Observable<Book[] | []>{
+    const QueryAuthor = Books.filter((a) => a.authors === author);
+    console.log(QueryAuthor);
+    this.data.set({
+      data: QueryAuthor,
+    });
+    return of(QueryAuthor);
   }
 }

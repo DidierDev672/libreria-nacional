@@ -45,6 +45,20 @@ export class CategoryService {
       name: 'Fantasía',
       description: 'Historias de magia y mundos imaginarios.',
     },
+    {
+      photo:
+        'https://images.pexels.com/photos/415351/pexels-photo-415351.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      name: 'Romance',
+      description:
+        'Historias de amor y relaciones emocionales, con desafíos y finales felices.',
+    },
+    {
+      photo:
+        'https://images.pexels.com/photos/17919908/pexels-photo-17919908/free-photo-of-punto-de-referencia-viaje-viajar-grecia.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      name: 'Philosophy',
+      description:
+        'Reflexiones profundas sobre el amor y la naturaleza de las relaciones humanas.',
+    },
   ];
 
   constructor() {
@@ -58,7 +72,7 @@ export class CategoryService {
     return of(this.data().category);
   }
 
-  getByNameCategory(category: string): Observable<Category | undefined>{
+  getByNameCategory(category: string): Observable<Category | undefined> {
     const categoric = this.categoric.find((c) => c.name === category);
     return of(categoric);
   }

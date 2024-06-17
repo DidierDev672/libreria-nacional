@@ -25,7 +25,7 @@ export default class ViewCategoryComponent {
 
   public bookCategory = toSignal(
     this.route.params.pipe(
-      switchMap(( { category } ) => this.bookService.getByCategoryBook(category))
+      switchMap(( { category } ) =>  this.bookService.getByCategoryBook(category))
     )
   );
 

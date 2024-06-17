@@ -15,11 +15,35 @@ import { FormsModule } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContentSearchComponent {
+  isOpen = false;
+  selectOptions: string = '';
+  options = ['Libro', 'Autor', 'Genero'];
   bookService = inject(BookService);
 
   @Input() title: string = '';
 
+  toggleDropdown() {
+    this.isOpen = !this.isOpen;
+  }
+
+  selectChoice(options: string) {
+    this.isOpen = !this.isOpen;
+    this.selectOptions = options;
+  }
+
   search(): void {
-    this.bookService.getByNameBook(this.title);
+    switch (this.selectOptions) {
+      case 'Libro': {
+        this.bookService.getByNameBook(this.title);
+        break;
+      }
+      case 'Autor': {
+        this.bookService.getByAuthorBook(this.title);
+        break;
+      }
+      default: {
+        break;
+      }
+    }
   }
 }
