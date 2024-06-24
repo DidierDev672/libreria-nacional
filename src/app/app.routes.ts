@@ -34,6 +34,10 @@ export const routes: Routes = [
     loadComponent: () => import('./core/features/book/book-form/book-form.component')
   },
   {
+    path: 'author',
+    loadComponent: () => import('./core/features/book/author/author.component')
+  },
+  {
     path: '',
     redirectTo: '/books',
     pathMatch: 'full',
