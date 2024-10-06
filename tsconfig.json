@@ -2,6 +2,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@model/*": ["./src/app/core/models/*"],
+      "@shared/*": ["./src/app/core/shared/*"],
+      "@enum/*": ["./src/app/core/features/enum/*"]
+    },
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,

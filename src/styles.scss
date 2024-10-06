@@ -1,5 +1,668 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --white-100: hsl(0, 0%, 100%);
+  --white-98: hsl(0, 0%, 98%);
+  --white-96: hsl(0, 0%, 96%);
+  --white-94: hsl(0, 0%, 94%);
+  --white-92: hsl(0, 0%, 92%);
+  --white-90: hsl(0, 0%, 90%);
+
+  /* Escala de blancos con opacidad para superposiciones */
+  --white-alpha-90: hsla(0, 0%, 100%, 0.9);
+  --white-alpha-80: hsla(0, 0%, 100%, 0.8);
+  --white-alpha-70: hsla(0, 0%, 100%, 0.7);
+  --white-alpha-60: hsla(0, 0%, 100%, 0.6);
+
+  /* Versiones cálidas para ambientes más acogedores */
+  --white-cool-100: hsl(210, 40%, 100%);
+  --white-cool-98: hsl(210, 30%, 98%);
+  --white-cool-96: hsl(210, 20%, 96%);
+
+  /* Font Sizes */
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  /* Font Weights */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* Line Heights */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+
+  /* Pastel Colors */
+  --pastel-pink: #ffb5c2;
+  --pastel-blue: #a0c4ff;
+  --pastel-green: #b4e6b0;
+  --pastel-yellow: #ffeaa0;
+  --pastel-lavender: #e5b3ff;
+  --pastel-coral: #ffb5a0;
+  --pastel-mint: #b0e6d1;
+
+  /* Colores hover (ligeramente más oscuros) */
+  --pastel-pink-hover: #ff99b3;
+  --pastel-blue-hover: #86c1ff;
+  --pastel-green-hover: #9ed072;
+  --pastel-yellow-hover: #fdf346;
+  --pastel-purple-hover: #b39dff;
+
+  /* Pastel Color Variations */
+  --pastel-pink-light: #ffd5dd;
+  --pastel-pink-dark: #ff95a8;
+
+  --pastel-blue-light: #c0d8ff;
+  --pastel-blue-dark: #80b0ff;
+
+  --pastel-green-light: #d4f2d1;
+  --pastel-green-dark: #94da8f;
+
+  --pastel-yellow-light: #fff2c0;
+  --pastel-yellow-dark: #ffe280;
+
+  /* Functional Colors */
+  --color-primary: var(--pastel-blue);
+  --color-secondary: var(--pastel-pink);
+  --color-accent: var(--pastel-lavender);
+  --color-success: var(--pastel-green);
+  --color-warning: var(--pastel-yellow);
+  --color-error: var(--pastel-coral);
+
+  /* Gradientes neutros */
+  --gradient-white-vertical: linear-gradient(
+    to bottom,
+    var(--white-100) 0%,
+    var(--white-98) 50%,
+    var(--white-96) 100%
+  );
+
+  --gradient-white-horizontal: linear-gradient(
+    to right,
+    var(--white-100) 0%,
+    var(--white-98) 50%,
+    var(--white-96) 100%
+  );
+
+  --gradient-white-diagonal: linear-gradient(
+    45deg,
+    var(--white-100) 0%,
+    var(--white-98) 50%,
+    var(--white-96) 100%
+  );
+
+  --gradient-white-radial: radial-gradient(
+    circle,
+    var(--white-100) 0%,
+    var(--white-98) 50%,
+    var(--white-96) 100%
+  );
+
+  /* Gradientes cálidos */
+  --gradient-warm-vertical: linear-gradient(
+    to bottom,
+    var(--white-warm-100) 0%,
+    var(--white-warm-98) 50%,
+    var(--white-warm-96) 100%
+  );
+
+  --gradient-warm-radial: radial-gradient(
+    circle,
+    var(--white-warm-100) 0%,
+    var(--white-warm-98) 50%,
+    var(--white-warm-96) 100%
+  );
+
+  /* Gradientes fríos */
+  --gradient-cool-vertical: linear-gradient(
+    to bottom,
+    var(--white-cool-100) 0%,
+    var(--white-cool-98) 50%,
+    var(--white-cool-96) 100%
+  );
+
+  --gradient-cool-radial: radial-gradient(
+    circle,
+    var(--white-cool-100) 0%,
+    var(--white-cool-98) 50%,
+    var(--white-cool-96) 100%
+  );
+
+  /* Escala de colores - Del más oscuro al más claro */
+
+  --text-black: hsl(0, 0%, 0%);
+  --text-gray-90: hsl(0, 0%, 10%);
+  --text-gray-80: hsl(0, 0%, 20%);
+  --text-gray-70: hsl(0, 0%, 30%);
+  --text-gray-60: hsl(0, 0%, 40%);
+  --text-gray-50: hsl(0, 0%, 50%);
+  --text-gray-40: hsl(0, 0%, 60%);
+  --text-gray-30: hsl(0, 0%, 70%);
+
+  /* Escala tipográfica - Siguiendo proporción 1.250 (Major Third) */
+  --text-xs: 0.8rem;
+  --text-sm: 0.9rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.563rem;
+  --text-2xl: 1.953rem;
+  --text-3xl: 2.441rem;
+  --text-4xl: 3.052rem;
+
+  /* Pesos de fuente */
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* Altura de línea */
+  --leading-tight: 1.2;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  /* Espaciado entre letras */
+  --tracking-tighter: -0.05em;
+  --tracking-tighter: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+}
+
+/* Utility Classes */
+.text-xs {
+  font-size: var(--text-xs);
+}
+.text-sm {
+  font-size: var(--text-sm);
+}
+.text-base {
+  font-size: var(--text-base);
+}
+.text-lg {
+  font-size: var(--text-lg);
+}
+.text-xl {
+  font-size: var(--text-xl);
+}
+.text-2xl {
+  font-size: var(--text-2xl);
+}
+.text-3xl {
+  font-size: var(--text-3xl);
+}
+.text-4xl {
+  font-size: var(--text-4xl);
+}
+
+.font-light {
+  font-weight: var(--font-light);
+}
+.font-normal {
+  font-weight: var(--font-normal);
+}
+.font-medium {
+  font-weight: var(--font-medium);
+}
+.font-semibold {
+  font-weight: var(--font-semibold);
+}
+.font-bold {
+  font-weight: var(--font-bold);
+}
+
+.text-yellow {
+  color: var(--pastel-yellow);
+}
+
+.text-pink {
+  color: var(--pastel-pink);
+}
+
+.text-blue {
+  color: var(--pastel-blue);
+}
+
+.text-green {
+  color: var(--pastel-green);
+}
+
+.text-lavender {
+  color: var(--pastel-lavender);
+}
+
+.text-coral {
+  color: var(--pastel-coral);
+}
+
+.text-mint {
+  color: var(--pastel-mint);
+}
+
+body {
+  color: var(--text-gray-90);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Jerarquía de encabezados */
+
+h1,
+.h1 {
+  font-size: var(--text-4xl);
+  color: var(--text-gray-80);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: 0.5em;
+}
+
+h2,
+.h2 {
+  font-size: var(--text-3xl);
+  color: var(--text-gray-80);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: 0.5em;
+}
+
+h3,
+.h3 {
+  font-size: var(--text-2xl);
+  color: var(--text-gray-70);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-snug);
+  margin-bottom: 0.5em;
+}
+
+h4,
+.h4 {
+  font-size: var(--text-xl);
+  color: var(--text-gray-70);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-snug);
+  margin-bottom: 0.5em;
+}
+
+/* Estilos de párrafo */
+p {
+  margin-bottom: 1em;
+}
+
+.lead {
+  font-size: var(--text-lg);
+  color: var(--text-gray-60);
+  line-height: var(--leading-relaxed);
+}
+
+.small {
+  font-size: var(--text-sm);
+  color: var(--text-gray-50);
+}
+
+/* Clases de utilidad */
+.text-black {
+  color: var(--text-black);
+}
+.text-gray-90 {
+  color: var(--text-gray-90);
+}
+.text-gray-80 {
+  color: var(--text-gray-80);
+}
+.text-gray-70 {
+  color: var(--text-gray-70);
+}
+.text-gray-60 {
+  color: var(--text-gray-60);
+}
+.text-gray-50 {
+  color: var(--text-gray-50);
+}
+.text-gray-40 {
+  color: var(--text-gray-40);
+}
+.text-gray-30 {
+  color: var(--text-gray-30);
+}
+
+.font-light {
+  font-weight: var(--font-light);
+}
+.font-regular {
+  font-weight: var(--font-regular);
+}
+.font-medium {
+  font-weight: var(--font-medium);
+}
+.font-semibold {
+  font-weight: var(--font-semibold);
+}
+.font-bold {
+  font-weight: var(--font-bold);
+}
+
+/* Elementos de UI comunes */
+.button {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-wide);
+}
+
+.caption {
+  font-size: var(--text-xs);
+  color: var(--text-gray-40);
+  letter-spacing: var(--tracking-wide);
+}
+
+.label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-gray-70);
+  letter-spacing: var(--tracking-wide);
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+  :root {
+    /* Ajuste de tamaños para móviles */
+    --text-4xl: 2.441rem;
+    --text-3xl: 1.953rem;
+    --text-2xl: 1.563rem;
+    --text-xl: 1.25rem;
+  }
+
+  body {
+    font-size: 15px;
+  }
+}
+
+/* Estilos de impresión */
+@media print {
+  body {
+    color: black;
+    font-size: 12pt;
+  }
+
+  h1 {
+    font-size: 24pt;
+  }
+  h2 {
+    font-size: 20pt;
+  }
+  h3 {
+    font-size: 16pt;
+  }
+  h4 {
+    font-size: 14pt;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+}
+
+img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Clases de utilidad para gradientes */
+.gradient-white-vertical {
+  background: var(--gradient-white-vertical);
+}
+
+.gradient-white-horizontal {
+  background: var(--gradient-white-horizontal);
+}
+
+.gradient-white-diagonal {
+  background: var(--gradient-white-diagonal);
+}
+
+.gradient-white-radial {
+  background: var(--gradient-cool-radial);
+}
+
+.gradient-warn-vertical {
+  background: var(--gradient-warm-vertical);
+}
+
+.gradient-warm-radial {
+  background: var(--gradient-warm-radial);
+}
+
+.gradient-cool-vertical {
+  background: var(--gradient-cool-vertical);
+}
+
+.gradient-cool-radial {
+  background: var(--gradient-cool-radial);
+}
+
+/* Clases de utilidad para elementos comunes de UI */
+.card {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button-primary {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: 4px;
+}
+
+.grid-book-store {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.flex-column-book-store {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.flex-row-book-store {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+/* Estilos base para botones */
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  color: var(--text-gray-30);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de pulsación */
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* Estilos para focus - accesibilidad */
+.btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Variantes de color */
+.btn-pink {
+  background-color: var(--pastel-pink);
+  color: var(--text-gray-60);
+  box-shadow: 0 4px var(--shadow-color);
+}
+
+.btn-pink:hover {
+  background-color: var(--pastel-pink-hover);
+}
+
+.btn-blue {
+  background-color: var(--pastel-blue);
+  color: var(--text-gray-60);
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.btn-blue:hover {
+  background-color: var(--pastel-blue-hover);
+}
+
+.btn-green {
+  background-color: var(--pastel-green);
+  color: var(--text-gray-60);
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+.btn-green:hover {
+  background-color: var(--pastel-green-hover);
+}
+
+.btn-yellow {
+  background-color: var(--pastel-yellow);
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+.btn-yellow:hover {
+  background-color: var(--pastel-yellow-hover);
+}
+
+.btn-purple {
+  background-color: var(--pastel-purple);
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+.btn-purple:hover {
+  background-color: var(--pastel-purple-hover);
+}
+
+/* Variantes de tamaño */
+.btn-small {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.btn-large {
+  padding: 16px 32px;
+  font-size: 18px;
+}
+
+/* Estado deshabilitado */
+.btn:disabled {
+  background-color: var(--disabled-bg);
+  color: var(--disabled-text);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Botón con ícono */
+.btn-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Botón outline */
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--pastel-blue);
+  color: var(--text-color);
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  background-color: var(--pastel-blue);
+}
+
+/* Efecto de carga */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn-loading {
+  color: transparent;
+  position: relative;
+}
+
+.btn-loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid var(--text-color);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+

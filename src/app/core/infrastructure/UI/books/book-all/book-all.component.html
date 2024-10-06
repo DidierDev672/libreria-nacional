@@ -1,0 +1,20 @@
+<div class="card">
+    @defer(){
+        <div class="grid-book-store">
+            @for(book of bookStore.listBooks(); track $index){
+                <article class="card gradient-white-diagonal">
+                    <img [srcset]="book.getPhoto()" [alt]="book.getTitle()" />
+                    <aside class="flex-column-book-store">
+                        <h1 class="text-lg">{{ book.getTitle() }}</h1>
+                        @for(author of book.getAuthors(); track $index){
+                            <span class="text-gray-70 text-lg">{{ author.getName() }}</span>
+                        }
+                        <button class="btn btn-blue">Explorar</button>
+                    </aside>
+                </article>
+            }
+        </div>
+    } @placeholder(minimum 500ms) {
+        <span>Cargando información...</span>
+    }
+</div>
