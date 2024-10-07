@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="flex-column-book-store">
+        <div class="flex-row-book-store">
+            <div>
+                <img [srcset]="book()?.getPhoto()" />
+            </div>
+            <div>
+                <h2>{{ book()?.getTitle() }}</h2>
+                @for(author of book()?.getAuthors(); track $index){
+                    <span class="font-medium text-blue">{{ author.getName() }}</span>
+                }
+                @for(genre of book()?.getDetailModel()?.getGenres(); track $index){
+                    <span class="font-medium text-blue">{{ genre.getName() }}</span>
+                }
+            </div>
+        </div>
+            <div class="flex-column-book-store">
+                <span class="font-bold text-gray-50 text-xl">{{ book()?.getDescriptionModel()?.getTitle() }}</span>
+                @for(description of book()?.getDescriptionModel()?.getDescription(); track $index){
+                    <p class="font-regular text-gray-40 text-base">
+                        {{ description }}
+                    </p>
+                }
+            </div>
+            <!-- <div class="flex-column-book-store">
+                <h3>ISBN</h3>
+                <span>{{ book()?.getDetailModel()?.getISBN() }}</span>
+                <h3>Idioma</h3>
+                <span>{{ book()?.getDetailModel()?.getLanguage() }}</span>
+    
+                <h3>Paginas</h3>
+                <span>{{ book()?.getDetailModel()?.getPages() }}</span>
+    
+                <h3>Año de publicación</h3>
+                <span>{{ book()?.getDetailModel()?.getYear() }}</span>
+            </div> -->
+    </div>
+</div>

@@ -1,0 +1,60 @@
+:host {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nav-header {
+  display: flex;
+  height: 10vh;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.nav-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-items:flex-start;
+}
+
+nav {
+  width: 100%;
+  padding: 10px;
+}
+
+.flex-between {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  place-items: center;
+  justify-items: center;
+  margin-top: -50px;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.list-item > li {
+  list-style: none;
+  color: #e0e0e0;
+  font-size: 1.2rem;
+}
+
+.list-item > li, a {
+  text-decoration: none;
+  color: #ffffff;
+}

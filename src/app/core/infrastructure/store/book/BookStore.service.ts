@@ -1,6 +1,7 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { Book } from '../../../domains/models/Book';
 import { BookAllAdapterRepositoryService } from '../../driven-adapter/book/BookAllAdapterRepository.service';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,17 @@ export class BookStoreService {
         this.#state().data = books;
       }
     });
+  }
+
+  queryBook(uuid: string): Observable<Book> {
+    const queryBook = this.#state().data.find((book) => book.getUuid() === uuid);
+    if(!queryBook){
+      throw new Error(`Book with uuid ${uuid} not found.`);
+    }
+
+    console.log(queryBook);;;;
+
+    return of(queryBook);
   }
 }
 
